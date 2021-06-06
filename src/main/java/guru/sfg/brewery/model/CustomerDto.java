@@ -15,21 +15,19 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package guru.sfg.beer.order.service.services;
+package guru.sfg.brewery.model;
 
+import lombok.*;
 
-import guru.sfg.brewery.model.BeerOrderDto;
-import guru.sfg.brewery.model.BeerOrderPagedList;
-import org.springframework.data.domain.Pageable;
-
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
-public interface BeerOrderService {
-    BeerOrderPagedList listOrders(UUID customerId, Pageable pageable);
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class CustomerDto {
 
-    BeerOrderDto placeOrder(UUID customerId, BeerOrderDto beerOrderDto);
+    private String name;
 
-    BeerOrderDto getOrderById(UUID customerId, UUID orderId);
-
-    void pickupOrder(UUID customerId, UUID orderId);
 }
